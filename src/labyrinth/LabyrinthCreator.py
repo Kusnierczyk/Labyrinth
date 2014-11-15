@@ -36,3 +36,27 @@ def createLabyrinthEntrance():
         else:
             yEntrancePosition = LABYRINTH_WIDTH - 1;
             labyrinthArray[xEntrancePosition][yEntrancePosition] = LABYRINTH_ENTRANCE;
+            
+def createLabyrinthExit():
+    global labyrinthArray;
+    global xExitPosition;
+    global yExitPosition;
+    
+    if (yEntrancePosition == 0):
+        xExitPosition = random.randrange(LABYRINTH_HEIGHT);
+        yExitPosition = LABYRINTH_WIDTH - 1;
+        labyrinthArray[xExitPosition][yExitPosition] = LABYRINTH_EXIT;
+    elif (yEntrancePosition == LABYRINTH_WIDTH - 1):
+        xExitPosition = random.randrange(LABYRINTH_HEIGHT);
+        yExitPosition = 0;
+        labyrinthArray[xExitPosition][yExitPosition] = LABYRINTH_EXIT;
+    elif (yEntrancePosition in range(1, LABYRINTH_WIDTH - 1)):
+        xExitPosition = LABYRINTH_HEIGHT - 1;
+        yExitPosition = random.randrange(LABYRINTH_WIDTH - 1);
+        labyrinthArray[xExitPosition][yExitPosition] = LABYRINTH_EXIT;
+
+def showLabyrinth():
+    #for i in range(LABYRINTH_HEIGHT):
+        #for j in range(LABYRINTH_WIDTH):
+            #print (labyrinthArray[i][j]);
+            print(labyrinthArray)
