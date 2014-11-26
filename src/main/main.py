@@ -1,2 +1,7 @@
+from labyrinth import LabyrinthCreator
+
 if __name__ == '__main__':
-	pass
+    LabyrinthCreator.initializeLabyrinth();
+    LabyrinthCreator.createLabyrinthEntrance();
+    LabyrinthCreator.createLabyrinthExit();
+    LabyrinthCreator.showLabyrinth();    
