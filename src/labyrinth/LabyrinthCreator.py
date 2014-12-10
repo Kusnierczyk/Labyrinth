@@ -30,6 +30,8 @@ class LabyrinthCreator(object):
         if ((self.xEntrancePosition == 0) or (self.xEntrancePosition == self.LABYRINTH_HEIGHT - 1)):
             self.yEntrancePosition = random.randrange(self.LABYRINTH_WIDTH);
             self.labyrinthArray[self.xEntrancePosition][self.yEntrancePosition] = self.LABYRINTH_ENTRANCE;
+        
+        #Check if xEntrancePosition is between top and bottom labyrinth edge
         elif (self.xEntrancePosition in range(1, self.LABYRINTH_HEIGHT - 1)):
             if (random.random() < self.PROBABILITY):
                 self.yEntrancePosition = 0;        
