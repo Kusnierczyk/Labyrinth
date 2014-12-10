@@ -7,6 +7,7 @@ class LabyrinthDisplayer(object):
     LABYRINTH_BEST_ROAD = "bestRoad.png"
     LABYRINTH_ROAD_IMAGE = "road.png";
     LABYRINTH_WALL_IMAGE = "wall.png";
+    SOURCE_FOLDER_NAME = "src";
     IMAGES_FOLDER_NAME = "images";
     IMAGE_HEIGHT = 20;
     IMAGE_WIDTH = 20;
@@ -45,9 +46,8 @@ class LabyrinthDisplayer(object):
     
     def prepareImagePath(self, imageName):
         path = os.getcwd();
-        maxIndexOfBackslashInPath = path.rfind("\\");
-        '''wycinamy stringa od poczatku do ostatniego \\'''
-        path = path[0 : maxIndexOfBackslashInPath + 1] + self.IMAGES_FOLDER_NAME + "\\" + imageName;
+        index = path.rfind(self.SOURCE_FOLDER_NAME);
+        path = path[0 : index] + self.IMAGES_FOLDER_NAME + "\\" + imageName;
         return path;
     
     def showLabyrinth(self, labyrinthArray, labyrinthHeight, labyrinthWidth,
