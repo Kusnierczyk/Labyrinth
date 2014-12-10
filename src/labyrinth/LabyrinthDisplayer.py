@@ -1,4 +1,5 @@
 import pygame;
+import os;
 
 class LabyrinthDisplayer(object):
     LABYRINTH_ENTRANCE_IMAGE = "entrance.png";
@@ -30,4 +31,15 @@ class LabyrinthDisplayer(object):
         self.bestRoadImage = self.loadImage(self.prepareImagePath(self.LABYRINTH_BEST_ROAD));
         self.roadImage = self.loadImage(self.prepareImagePath(self.LABYRINTH_ROAD_IMAGE));
         self.wallImage = self.loadImage(self.prepareImagePath(self.LABYRINTH_WALL_IMAGE));
+        
+    def prepareImagePath(self, imageName):
+        path = os.getcwd();
+        maxIndexOfBackslashInPath = path.rfind("\\");
+        '''wycinamy stringa od poczatku do ostatniego \\'''
+        path = path[0 : maxIndexOfBackslashInPath + 1] + self.IMAGES_FOLDER_NAME + "\\" + imageName;
+        return path; 
+    
+    def loadImage(self, path):
+        image = pygame.image.load(path).convert_alpha();
+        return image;
         
