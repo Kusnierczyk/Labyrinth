@@ -52,5 +52,5 @@ class LabyrinthCreator(object):
             self.yExitPosition = random.randrange(self.LABYRINTH_WIDTH - 1);
             self.labyrinthArray[self.xExitPosition][self.yExitPosition] = self.LABYRINTH_EXIT;
     
-    def showLab(self):
+    def show(self):
         print(self.labyrinthArray);
