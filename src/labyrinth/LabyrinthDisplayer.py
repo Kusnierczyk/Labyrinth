@@ -32,14 +32,44 @@ class LabyrinthDisplayer(object):
         self.roadImage = self.loadImage(self.prepareImagePath(self.LABYRINTH_ROAD_IMAGE));
         self.wallImage = self.loadImage(self.prepareImagePath(self.LABYRINTH_WALL_IMAGE));
         
+    def displayLoop(self):
+        while not self.running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = True
+        pygame.quit();        
+         
+    def loadImage(self, path):
+        image = pygame.image.load(path).convert_alpha();
+        return image;
+    
     def prepareImagePath(self, imageName):
         path = os.getcwd();
         maxIndexOfBackslashInPath = path.rfind("\\");
         '''wycinamy stringa od poczatku do ostatniego \\'''
         path = path[0 : maxIndexOfBackslashInPath + 1] + self.IMAGES_FOLDER_NAME + "\\" + imageName;
-        return path; 
+        return path;
     
-    def loadImage(self, path):
-        image = pygame.image.load(path).convert_alpha();
-        return image;
+    def showLabyrinth(self, labyrinthArray, labyrinthHeight, labyrinthWidth,
+                      labyrinthEntranceFlag, labyrinthExitFlag, labyrinthRoadFlag,
+                      labyrinthWallFlag, xEntrancePosition, yEntrancePosition, 
+                      xExitPosition, yExitPosition):
         
+        for i in range(labyrinthHeight):
+            for j in range(labyrinthWidth):
+                if (labyrinthArray[i][j] == labyrinthWallFlag):
+                    self.surface.blit(self.wallImage, (i * self.IMAGE_WIDTH, 
+                                                   j * self.IMAGE_HEIGHT));
+                    
+                elif (labyrinthArray[i][j] == labyrinthRoadFlag):
+                    self.surface.blit(self.roadImage, (i * self.IMAGE_WIDTH, 
+                                                   j * self.IMAGE_HEIGHT));
+                    
+        self.surface.blit(self.entranceImage, (xEntrancePosition * self.IMAGE_WIDTH, 
+        yEntrancePosition * self.IMAGE_HEIGHT));
+        self.surface.blit(self.exitImage, (xExitPosition * self.IMAGE_WIDTH, 
+        yExitPosition * self.IMAGE_HEIGHT));
+        pygame.display.flip();
+        self.displayLoop();    
+    
+    
