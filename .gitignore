@@ -1,2 +1,6 @@
 *.project
 *.pydevproject
+*.db
+
+__pycache__/
+*.py[cod]
