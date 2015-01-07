@@ -1,5 +1,6 @@
 import pygame;
 import os;
+from labyrinth.constants.Consts import Consts;
 
 class LabyrinthDisplayer(object):
     LABYRINTH_ENTRANCE_IMAGE = "entrance.png";
@@ -50,29 +51,28 @@ class LabyrinthDisplayer(object):
         path = path[0 : index] + self.IMAGES_FOLDER_NAME + "\\" + imageName;
         return path;
     
-    def showLabyrinth(self, LABYRINTH_HEIGHT, LABYRINTH_WIDTH, LABYRINTH_ENTRANCE,
-                    LABYRINTH_EXIT, LABYRINTH_ROAD, LABYRINTH_WALL, labyrinthArray, 
-                    xEntrancePosition, yEntrancePosition, 
+    def showLabyrinth(self, labyrinthArray, xEntrancePosition, yEntrancePosition, 
                     xExitPosition, yExitPosition):
         
         pygame.display.flip();
         
-        for i in range(LABYRINTH_HEIGHT):
-            for j in range(LABYRINTH_WIDTH):
-                if (labyrinthArray[i][j] == LABYRINTH_WALL):
-                    self.surface.blit(self.wallImage, (i * self.IMAGE_WIDTH, 
-                                                   j * self.IMAGE_HEIGHT));
-                    
-                elif (labyrinthArray[i][j] == LABYRINTH_ROAD):
-                    self.surface.blit(self.roadImage, (i * self.IMAGE_WIDTH, 
-                                                   j * self.IMAGE_HEIGHT));
+        for i in range(Consts.LABYRINTH_HEIGHT):
+            for j in range(Consts.LABYRINTH_WIDTH):
+                if (labyrinthArray[i][j] == Consts.LABYRINTH_ROAD):
+                    self.surface.blit(self.roadImage, (j * self.IMAGE_WIDTH, 
+                                                   i * self.IMAGE_HEIGHT));
+                                                   
+                elif (labyrinthArray[i][j] == Consts.LABYRINTH_BEST_ROAD):
+                    self.surface.blit(self.bestRoadImage, (j * self.IMAGE_WIDTH,
+                                                           i * self.IMAGE_HEIGHT));
+                                                           
                 else:
-                    self.surface.blit(self.bestRoadImage, (i * self.IMAGE_WIDTH,
-                                                           j * self.IMAGE_HEIGHT));
+                    self.surface.blit(self.wallImage, (j * self.IMAGE_WIDTH, 
+                                                   i * self.IMAGE_HEIGHT));
                 
-        self.surface.blit(self.entranceImage, (xEntrancePosition * self.IMAGE_WIDTH, 
-        yEntrancePosition * self.IMAGE_HEIGHT));
-        self.surface.blit(self.exitImage, (xExitPosition * self.IMAGE_WIDTH, 
-        yExitPosition * self.IMAGE_HEIGHT));
+        self.surface.blit(self.entranceImage, (yEntrancePosition * self.IMAGE_WIDTH, 
+        xEntrancePosition * self.IMAGE_HEIGHT));
+        self.surface.blit(self.exitImage, (yExitPosition * self.IMAGE_WIDTH, 
+        xExitPosition * self.IMAGE_HEIGHT));
         pygame.display.flip();
         self.displayLoop();
