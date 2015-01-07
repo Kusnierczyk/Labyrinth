@@ -28,47 +28,47 @@ class RoadFinder(object):
                 while ((labyrinthArray[tmpX][tmpY] != Consts.LABYRINTH_BEST_ROAD)
                        and (labyrinthArray[tmpX][tmpY] != Consts.LABYRINTH_ENTRANCE)):
                     
-                    if (labyrinthArray[tmpX][tmpY] == Consts.LABYRINTH_ROAD_LEFT):
+                    if (labyrinthArray[tmpX][tmpY] == Consts.LABYRINTH_ROAD_UP):
                         labyrinthArray[tmpX][tmpY] = Consts.LABYRINTH_BEST_ROAD;
                         tmpX += 1;
                     
-                    elif (labyrinthArray[tmpX][tmpY] == Consts.LABYRINTH_ROAD_RIGHT):
+                    elif (labyrinthArray[tmpX][tmpY] == Consts.LABYRINTH_ROAD_DOWN):
                         labyrinthArray[tmpX][tmpY] = Consts.LABYRINTH_BEST_ROAD;
                         tmpX -= 1;
                     
-                    elif (labyrinthArray[tmpX][tmpY] == Consts.LABYRINTH_ROAD_UP):
+                    elif (labyrinthArray[tmpX][tmpY] == Consts.LABYRINTH_ROAD_LEFT):
                         labyrinthArray[tmpX][tmpY] = Consts.LABYRINTH_BEST_ROAD;
                         tmpY += 1;
                         
-                    elif (labyrinthArray[tmpX][tmpY] == Consts.LABYRINTH_ROAD_DOWN):
+                    elif (labyrinthArray[tmpX][tmpY] == Consts.LABYRINTH_ROAD_RIGHT):
                         labyrinthArray[tmpX][tmpY] = Consts.LABYRINTH_BEST_ROAD;
                         tmpY -= 1;
             
             if ((tmpX - 1 >= 0) and
                 (labyrinthArray[tmpX - 1][tmpY] == Consts.LABYRINTH_ROAD)):
                 
-                labyrinthArray[tmpX - 1][tmpY] = Consts.LABYRINTH_ROAD_LEFT;
+                labyrinthArray[tmpX - 1][tmpY] = Consts.LABYRINTH_ROAD_UP;
                 vertexQueue.append(tmpX - 1);
                 vertexQueue.append(tmpY);
             
             if ((tmpX + 1 <= Consts.LABYRINTH_HEIGHT - 1) and
                 (labyrinthArray[tmpX + 1][tmpY] == Consts.LABYRINTH_ROAD)):
                 
-                labyrinthArray[tmpX + 1][tmpY] = Consts.LABYRINTH_ROAD_RIGHT;
+                labyrinthArray[tmpX + 1][tmpY] = Consts.LABYRINTH_ROAD_DOWN;
                 vertexQueue.append(tmpX + 1);
                 vertexQueue.append(tmpY);
             
             if ((tmpY - 1 >= 0) and
                 (labyrinthArray[tmpX][tmpY - 1] == Consts.LABYRINTH_ROAD)):
                 
-                labyrinthArray[tmpX][tmpY - 1] = Consts.LABYRINTH_ROAD_UP;
+                labyrinthArray[tmpX][tmpY - 1] = Consts.LABYRINTH_ROAD_LEFT;
                 vertexQueue.append(tmpX);
                 vertexQueue.append(tmpY - 1);
             
             if ((tmpY + 1 <= Consts.LABYRINTH_WIDTH - 1) and
                 (labyrinthArray[tmpX][tmpY + 1] == Consts.LABYRINTH_ROAD)):
                 
-                labyrinthArray[tmpX][tmpY + 1] = Consts.LABYRINTH_ROAD_DOWN;
+                labyrinthArray[tmpX][tmpY + 1] = Consts.LABYRINTH_ROAD_RIGHT;
                 vertexQueue.append(tmpX);
                 vertexQueue.append(tmpY + 1);
 
