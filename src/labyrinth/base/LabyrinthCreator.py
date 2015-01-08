@@ -32,15 +32,15 @@ class LabyrinthCreator(object):
     
     def initializeLabyrinth(self):
         self.labyrinthArray = numpy.zeros((Consts.LABYRINTH_WIDTH, Consts.LABYRINTH_HEIGHT), dtype=numpy.int);
-#         self.xEntrancePosition = 0;
+#         self.xEntrancePosition = 4;
 #         self.yEntrancePosition = 0;       
 #         self.labyrinthArray[self.xEntrancePosition][self.yEntrancePosition] = Consts.LABYRINTH_ENTRANCE;
-#          
-#         self.xExitPosition = 9;
-#         self.yExitPosition = 9;
+#           
+#         self.xExitPosition = 2;
+#         self.yExitPosition = 4;
 #         self.labyrinthArray[self.xExitPosition][self.yExitPosition] = Consts.LABYRINTH_EXIT;
+
 #         self.labyrinthArray[1][0] = Consts.LABYRINTH_ROAD;
-#          
 #         self.labyrinthArray[2][0] = Consts.LABYRINTH_ROAD;
 #         self.labyrinthArray[2][1] = Consts.LABYRINTH_ROAD;
 #         self.labyrinthArray[2][2] = Consts.LABYRINTH_ROAD;
@@ -51,6 +51,7 @@ class LabyrinthCreator(object):
 #         
 #         self.labyrinthArray[4][1] = Consts.LABYRINTH_ROAD;
 #         self.labyrinthArray[4][2] = Consts.LABYRINTH_ROAD;
+#
 #         for i in range(Consts.LABYRINTH_HEIGHT):
 #             for j in range(Consts.LABYRINTH_WIDTH):
 #                 self.labyrinthArray[i][j] = Consts.LABYRINTH_WALL;
@@ -108,14 +109,14 @@ class LabyrinthCreator(object):
         while (newX != self.xExitPosition - 1):
             currentX = newX;
             currentY = newY;
-            newX = currentX + 1;
-            newY = currentY;
+            newX += 1;
             self.connectPoints(currentX, currentY, newX, newY);
             currentX += 1;
             newY = self.generateRandomValue(newY);
             self.connectPoints(currentX, currentY, newX, newY);
         
-        newX = currentX + 1;
+        self.connectPoints(newX, newY, self.xExitPosition, newY);
+        newX += 1;
         self.connectPoints(newX, newY, self.xExitPosition, self.yExitPosition);
         self.rotateArray(self.labyrinthArray, 4 - numberOfRotations);
         self.updateEntranceExitPosition(self.findElementInLabyrinthArray(Consts.LABYRINTH_ENTRANCE),
@@ -125,9 +126,11 @@ class LabyrinthCreator(object):
         newValue = random.randrange(0, Consts.LABYRINTH_WIDTH);
         while (newValue == currentValue):
             newValue = random.randrange(0, Consts.LABYRINTH_WIDTH);
+        #print("Nowy y to: ", newValue);
         return newValue;
     
-    def connectPoints(self, startX, startY, stopX, stopY):        
+    def connectPoints(self, startX, startY, stopX, stopY):
+        #print("Lacze punkt", startX, startY, "z punktem ", stopX, stopY);    
         while (startY != stopY):
             if (stopY > startY):        #Idziemy w prawa strone
                 startY += 1;
