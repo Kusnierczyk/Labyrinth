@@ -9,13 +9,19 @@ class LabyrinthCreator(object):
     xExitPosition = 0;
     yExitPosition = 0;
     labyrinthArray = None;
-    
+
+    ## LabyrinthCreator class constructor
+    # @param self The object pointer     
     def __init__(self):
         pass;
     
+    ## Creates and initializes with 0 value labyrinth array
+    # @param self The object pointer 
     def initializeLabyrinth(self):
         self.labyrinthArray = numpy.zeros((Consts.LABYRINTH_WIDTH, Consts.LABYRINTH_HEIGHT), dtype=numpy.int);
                 
+    ## Creates labyrinth entrance
+    # @param self The object pointer
     def createLabyrinthEntrance(self):        
         self.xEntrancePosition = random.randrange(Consts.LABYRINTH_HEIGHT);
         if ((self.xEntrancePosition == 0) or (self.xEntrancePosition == Consts.LABYRINTH_HEIGHT - 1)):
@@ -31,6 +37,8 @@ class LabyrinthCreator(object):
                 self.yEntrancePosition = Consts.LABYRINTH_WIDTH - 1;
                 self.labyrinthArray[self.xEntrancePosition][self.yEntrancePosition] = Consts.LABYRINTH_ENTRANCE;
                 
+    ## Creates labyrinth exit
+    # @param self The object pointer
     def createLabyrinthExit(self):
         if ((self.xEntrancePosition == 0) and
                 (self.yEntrancePosition in range(Consts.LABYRINTH_WIDTH))):
@@ -55,6 +63,8 @@ class LabyrinthCreator(object):
         else:
             raise BaseException("ERROR");
     
+    ## Creates road between entrance and exit
+    # @param self The object pointer
     def createRoadBetweenEntranceAndExit(self):
         numberOfRotations = self.checkIfLabyrinthArrayRotationIsRequired();
         self.rotateArray(self.labyrinthArray, numberOfRotations);
@@ -82,12 +92,22 @@ class LabyrinthCreator(object):
         self.updateEntranceExitPosition(self.findElementInLabyrinthArray(Consts.LABYRINTH_ENTRANCE),
                                         self.findElementInLabyrinthArray(Consts.LABYRINTH_EXIT));
         
+    ## Generate new value using random library
+    # @param self The object pointer
+    # @param currentValue Current value
+    # @return newValue Value which not equals to currentValue
     def generateRandomValue(self, currentValue):
         newValue = random.randrange(0, Consts.LABYRINTH_WIDTH);
         while (newValue == currentValue):
             newValue = random.randrange(0, Consts.LABYRINTH_WIDTH);
         return newValue;
     
+    ## Creates road between two points
+    # @param self The object pointer
+    # @param startX Start position on X axis
+    # @param startY Start position on Y axis
+    # @param stopX Stop position on X axis
+    # @param stopY Stop position on Y axis
     def connectPoints(self, startX, startY, stopX, stopY):    
         while (startY != stopY):
             if (stopY > startY):            #We are going to the right
@@ -102,26 +122,37 @@ class LabyrinthCreator(object):
         else:
             self.labyrinthArray[stopX][stopY] = Consts.LABYRINTH_ROAD;
     
+    ## Rotates labyrinth array using numpy.rot90 method
+    # @param self The object pointer
+    # @return numberOfRotations Number of rotations which should be made
     def checkIfLabyrinthArrayRotationIsRequired(self):
-        ''' nie zadziala dobrze dla przypadku II '''
         numberOfRotations = 0;
         if ((self.yEntrancePosition == 0) and 
         (self.xEntrancePosition in range(1, Consts.LABYRINTH_HEIGHT - 1))): 
-            ''' przypadek III --> obrot o 90 w prawo '''
+            'Rotation of 90 degrees in clockwise direction'
             numberOfRotations = 3;
         elif (self.xEntrancePosition == Consts.LABYRINTH_WIDTH - 1):
-            ''' przypadek IV --> obrot o 180 w prawo '''
+            'Rotation of 180 degrees in clockwise direction'
             numberOfRotations = 2;
         elif (self.yEntrancePosition == Consts.LABYRINTH_WIDTH - 1):
-            ''' przypadek V --> obrot o 270 w prawo '''
+            'Rotation of 270 degrees in clockwise direction'
             numberOfRotations = 1;
         else:
             numberOfRotations = 0;
         return numberOfRotations;
     
+    ## Rotates labyrinth array using numpy.rot90 method
+    # @param self The object pointer
+    # @param labArray Array which represents labyrinth
+    # @param numberOfRotations Number of rotations which should be made
     def rotateArray(self, labArray, numberOfRotations):
         self.labyrinthArray = numpy.rot90(labArray, numberOfRotations);
     
+    ## Rotates labyrinth array using numpy.rot90 method
+    # @param self The object pointer
+    # @param labArray Array which represents labyrinth
+    # @return Tuple which contains (row, column) of searched element
+    # If value has not been found method return -1
     def findElementInLabyrinthArray(self, value):
         for row in range(Consts.LABYRINTH_WIDTH):
             for column in range(Consts.LABYRINTH_HEIGHT):
@@ -129,6 +160,10 @@ class LabyrinthCreator(object):
                     return row, column;
         return -1;
     
+    ## Updates entrance and exit position after labyrinth array rotation 
+    # @param self The object pointer
+    # @param entrancePosition Tuple which contains row and column of entrance 
+    # @param exitPosition Tuple which contains row and column of exit 
     def updateEntranceExitPosition(self, entrancePosition, exitPosition):
         self.xEntrancePosition = entrancePosition[0];
         self.yEntrancePosition = entrancePosition[1];

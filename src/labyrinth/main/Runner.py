@@ -5,9 +5,13 @@ from labyrinth.road.RoadFinder import RoadFinder;
 
 class Runner(object):
 
+    ## Runner class constructor
+    # @param self The object pointer 
     def __init__(self):
         pass;
     
+    ## Creates main objects and invokes methods
+    # @param self The object pointer 
     def run(self):
         labyrinthCreator = LabyrinthCreator();
         roadFinder = RoadFinder();

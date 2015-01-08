@@ -4,24 +4,61 @@ from labyrinth.constants.Consts import Consts;
 
 class LabyrinthDisplayer(object):
     
-    LABYRINTH_ENTRANCE_IMAGE = "entrance.png";
-    LABYRINTH_EXIT_IMAGE = "exit.png";
-    LABYRINTH_BEST_ROAD = "bestRoad.png"
-    LABYRINTH_ROAD_IMAGE = "road.png";
+    ## Defines labyrinth wall image name
     LABYRINTH_WALL_IMAGE = "wall.png";
+
+    ## Defines labyrinth road image name
+    LABYRINTH_ROAD_IMAGE = "road.png";
+    
+    ## Defines labyrinth best road image name
+    LABYRINTH_BEST_ROAD = "bestRoad.png"
+    
+    ## Defines labyrinth entrance image name
+    LABYRINTH_ENTRANCE_IMAGE = "entrance.png";
+    
+    ## Defines labyrinth exit image name
+    LABYRINTH_EXIT_IMAGE = "exit.png";
+    
+    ## Defines source project folder name
     SOURCE_FOLDER_NAME = "src";
+    
+    ## Defines images folder name
     IMAGES_FOLDER_NAME = "images";
+    
+    ## Defines images height
     IMAGE_HEIGHT = 20;
+    
+    ## Defines images width
     IMAGE_WIDTH = 20;
-    entranceImage = None;
-    exitImage = None;
-    bestRoadImage = None;
-    roadImage = None;
+    
+    ## Defines labyrinth wall image
     wallImage = None;
+    
+    ## Defines labyrinth road image
+    roadImage = None;
+    
+    ## Defines labyrinth best road image
+    bestRoadImage = None;
+    
+    ## Defines labyrinth entrance image
+    entranceImage = None;
+    
+    ## Defines labyrinth exit image
+    exitImage = None;
+    
+    ## Defines window size
     screenSize = None;
+    
+    ## Defines window background
     screenBackgroundColour = (255,255,255);
+    
+    ## Defines flag if program is running
     running = False;
 
+    ## LabyrinthDisplayer class constructor
+    # @param self The object pointer
+    # @param labyrinthHeight Labyrinth height
+    # @param labyrinthWidth Labyrinth width
     def __init__(self, labyrinthHeight, labyrinthWidth):
         self.screenSize = (labyrinthHeight * self.IMAGE_HEIGHT, 
                            labyrinthWidth * self.IMAGE_WIDTH);
@@ -35,6 +72,8 @@ class LabyrinthDisplayer(object):
         self.roadImage = self.loadImage(self.prepareImagePath(self.LABYRINTH_ROAD_IMAGE));
         self.wallImage = self.loadImage(self.prepareImagePath(self.LABYRINTH_WALL_IMAGE));
         
+    ## Waits for quit event and then closes it
+    # @param self The object pointer 
     def displayLoop(self):
         while not self.running:
             for event in pygame.event.get():
@@ -42,16 +81,31 @@ class LabyrinthDisplayer(object):
                     self.running = True
         pygame.quit();        
          
+    ## Loads image from disk
+    # @param self The object pointer
+    # @param path Path to image
+    # @return Loaded image        
     def loadImage(self, path):
         image = pygame.image.load(path).convert_alpha();
         return image;
     
+    ## Prepares image path
+    # @param self The object pointer
+    # @param imageName Image name
+    # @return Prepared path       
     def prepareImagePath(self, imageName):
         path = os.getcwd();
         index = path.rfind(self.SOURCE_FOLDER_NAME);
         path = path[0 : index] + self.IMAGES_FOLDER_NAME + "\\" + imageName;
         return path;
     
+    ## Displays labyrinth using pygame library
+    # @param self The object pointer
+    # @param labyrinthArray Array which represents labyrinth
+    # @param xEntrancePosition Entrance position on X axis
+    # @param yEntrancePosition Entrance position on Y axis
+    # @param xExitPosition Exit position on X axis
+    # @param yExitPosition Exit position on Y axis
     def showLabyrinth(self, labyrinthArray, xEntrancePosition, yEntrancePosition, 
                     xExitPosition, yExitPosition):
         

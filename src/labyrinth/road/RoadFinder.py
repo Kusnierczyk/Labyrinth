@@ -3,9 +3,18 @@ from collections import deque;
 
 class RoadFinder(object):
 
+    ## RoadFinder class constructor
+    # @param self The object pointer 
     def __init__(self):
         pass;
     
+    ## Searches road between entrance and exit
+    # @param self The object pointer
+    # @param labyrinthArray Array which represents labyrinth
+    # @param xEntrancePosition Entrance position on X axis
+    # @param yEntrancePosition Entrance position on Y axis
+    # @param xExitPosition Exit position on X axis
+    # @param yExitPosition Exit position on Y axis
     def searchRoad(self, labyrinthArray, xEntrancePosition, yEntrancePosition, 
                xExitPosition, yExitPosition):
     
@@ -72,6 +81,11 @@ class RoadFinder(object):
                 vertexQueue.append(tmpX);
                 vertexQueue.append(tmpY + 1);
 
+    ## Removes unused flags from labyrinth array after road search process
+    # @param self The object pointer
+    # @param labyrinthArray Array which represents labyrinth
+    # @param xExitPosition Exit position on X axis
+    # @param yExitPosition Exit position on Y axis
     def clearFlagsAfterRoadSearch(self, labyrinthArray, xExitPosition, yExitPosition):
         for i in range(Consts.LABYRINTH_HEIGHT):
             for j in range(Consts.LABYRINTH_WIDTH):
