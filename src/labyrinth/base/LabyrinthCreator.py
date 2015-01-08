@@ -3,11 +3,20 @@ import random;
 from labyrinth.constants.Consts import Consts;
 
 class LabyrinthCreator(object):
-
+    
+    ## Defines labyrinth entrance position on X axis
     xEntrancePosition = 0;
+    
+    ## Defines labyrinth entrance position on Y axis
     yEntrancePosition = 0;
+    
+    ## Defines labyrinth exit position on X axis
     xExitPosition = 0;
+    
+    ## Defines labyrinth exit position on Y axis
     yExitPosition = 0;
+    
+    ## Defines labyrinth array which represents labyrinth
     labyrinthArray = None;
 
     ## LabyrinthCreator class constructor
