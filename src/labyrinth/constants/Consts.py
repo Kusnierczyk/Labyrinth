@@ -12,6 +12,7 @@ class Consts(object):
     LABYRINTH_ROAD_UP = 7;        'komora z nitka w gore'
     LABYRINTH_ROAD_DOWN = 8;      'komora z nitka w dol'
     PROBABILITY = 0.5;
+    
     def __init__(self):
         pass;
         

@@ -11,50 +11,10 @@ class LabyrinthCreator(object):
     labyrinthArray = None;
     
     def __init__(self):
-        
-        '''
-        self.labyrinthArray[1][0] = Consts.LABYRINTH_ROAD;
-        self.labyrinthArray[1][1] = Consts.LABYRINTH_ROAD;
-        self.labyrinthArray[1][2] = Consts.LABYRINTH_ROAD;
-        
-        self.labyrinthArray[2][0] = Consts.LABYRINTH_ROAD;
-        self.labyrinthArray[2][1] = Consts.LABYRINTH_ROAD;
-        self.labyrinthArray[2][2] = Consts.LABYRINTH_ROAD;
-        self.labyrinthArray[2][3] = Consts.LABYRINTH_ROAD;
-        self.labyrinthArray[2][4] = Consts.LABYRINTH_ROAD;
-        
-        self.labyrinthArray[3][2] = Consts.LABYRINTH_ROAD;
-        self.labyrinthArray[3][3] = Consts.LABYRINTH_ROAD;
-        
-        self.labyrinthArray[4][2] = Consts.LABYRINTH_ROAD;
-        self.labyrinthArray[4][3] = Consts.LABYRINTH_ROAD;
-        '''
+        pass;
     
     def initializeLabyrinth(self):
         self.labyrinthArray = numpy.zeros((Consts.LABYRINTH_WIDTH, Consts.LABYRINTH_HEIGHT), dtype=numpy.int);
-#         self.xEntrancePosition = 4;
-#         self.yEntrancePosition = 0;       
-#         self.labyrinthArray[self.xEntrancePosition][self.yEntrancePosition] = Consts.LABYRINTH_ENTRANCE;
-#           
-#         self.xExitPosition = 2;
-#         self.yExitPosition = 4;
-#         self.labyrinthArray[self.xExitPosition][self.yExitPosition] = Consts.LABYRINTH_EXIT;
-
-#         self.labyrinthArray[1][0] = Consts.LABYRINTH_ROAD;
-#         self.labyrinthArray[2][0] = Consts.LABYRINTH_ROAD;
-#         self.labyrinthArray[2][1] = Consts.LABYRINTH_ROAD;
-#         self.labyrinthArray[2][2] = Consts.LABYRINTH_ROAD;
-#         self.labyrinthArray[2][3] = Consts.LABYRINTH_ROAD;
-#          
-#         self.labyrinthArray[3][1] = Consts.LABYRINTH_ROAD;
-#         self.labyrinthArray[3][2] = Consts.LABYRINTH_ROAD;
-#         
-#         self.labyrinthArray[4][1] = Consts.LABYRINTH_ROAD;
-#         self.labyrinthArray[4][2] = Consts.LABYRINTH_ROAD;
-#
-#         for i in range(Consts.LABYRINTH_HEIGHT):
-#             for j in range(Consts.LABYRINTH_WIDTH):
-#                 self.labyrinthArray[i][j] = Consts.LABYRINTH_WALL;
                 
     def createLabyrinthEntrance(self):        
         self.xEntrancePosition = random.randrange(Consts.LABYRINTH_HEIGHT);
@@ -126,16 +86,14 @@ class LabyrinthCreator(object):
         newValue = random.randrange(0, Consts.LABYRINTH_WIDTH);
         while (newValue == currentValue):
             newValue = random.randrange(0, Consts.LABYRINTH_WIDTH);
-        #print("Nowy y to: ", newValue);
         return newValue;
     
-    def connectPoints(self, startX, startY, stopX, stopY):
-        #print("Lacze punkt", startX, startY, "z punktem ", stopX, stopY);    
+    def connectPoints(self, startX, startY, stopX, stopY):    
         while (startY != stopY):
-            if (stopY > startY):        #Idziemy w prawa strone
+            if (stopY > startY):            #We are going to the right
                 startY += 1;
                 self.labyrinthArray[startX][startY] = Consts.LABYRINTH_ROAD;
-            elif (stopY < startY):        #Idziemy w lewa strone
+            elif (stopY < startY):          #We are going to the left
                 startY -= 1;
                 self.labyrinthArray[startX][startY] = Consts.LABYRINTH_ROAD;
         

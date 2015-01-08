@@ -10,19 +10,19 @@ class RoadFinder(object):
                xExitPosition, yExitPosition):
     
         vertexQueue = deque();
-        ' Set labyrinth exit as road '
+        'Set labyrinth exit as road'
         labyrinthArray[xExitPosition][yExitPosition] = Consts.LABYRINTH_ROAD;
         
-        'Oznaczamy wierzcholek wejscia jako odwiedzony i wrzucamy do kolejki'
+        'Put in the queue start point'
         vertexQueue.append(xEntrancePosition);
         vertexQueue.append(yEntrancePosition);
         
-        '__len__() zwraca dlugosc'
+        '__len__() returns length of vertexQueue'
         while (vertexQueue.__len__() != 0):
             tmpX = vertexQueue.popleft();
             tmpY = vertexQueue.popleft();
             
-            'Sprawdzamy czy x i y pobranego punktu rowna sie x i y wyjscia'
+            'Check if we probably do not need to end'
             if ((tmpX == xExitPosition) and (tmpY == yExitPosition)):
                 
                 while ((labyrinthArray[tmpX][tmpY] != Consts.LABYRINTH_BEST_ROAD)
