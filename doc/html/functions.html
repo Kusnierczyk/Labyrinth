@@ -85,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
@@ -116,9 +117,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>__init__()
 : <a class="el" href="classlabyrinth_1_1base_1_1_labyrinth_creator_1_1_labyrinth_creator.html#ac02f0e87b86cf58335f9d30d89642a81">labyrinth.base.LabyrinthCreator.LabyrinthCreator</a>
 , <a class="el" href="classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#a8b21cb2fe6c190b199c63e1af84639f7">labyrinth.constants.Consts.Consts</a>
-, <a class="el" href="classlabyrinth_1_1display_1_1_labyrinth_displayer_1_1_labyrinth_displayer.html#a4ce99a093420b8780884fa75a68c68f4">labyrinth.display.LabyrinthDisplayer.LabyrinthDisplayer</a>
+, <a class="el" href="classlabyrinth_1_1display_1_1_labyrinth_displayer_1_1_labyrinth_displayer.html#a27cbda0a87f5631c7ae31fb25aa1db15">labyrinth.display.LabyrinthDisplayer.LabyrinthDisplayer</a>
 , <a class="el" href="classlabyrinth_1_1main_1_1_runner_1_1_runner.html#a179498b5f99abc30c2f689ba80f4a332">labyrinth.main.Runner.Runner</a>
 , <a class="el" href="classlabyrinth_1_1road_1_1_road_finder_1_1_road_finder.html#a24aa257fdb5fb03659e7b484eb76e8b8">labyrinth.road.RoadFinder.RoadFinder</a>
+, <a class="el" href="classlabyrinth_1_1validators_1_1_consts_validator_1_1_consts_validator.html#a45c5a5bd36b0680275c4c39152039d8f">labyrinth.validators.ConstsValidator.ConstsValidator</a>
 </li>
 </ul>
 
@@ -133,6 +135,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
 <li>checkIfLabyrinthArrayRotationIsRequired()
 : <a class="el" href="classlabyrinth_1_1base_1_1_labyrinth_creator_1_1_labyrinth_creator.html#a365b344a8357a031484f2f68bb544551">labyrinth.base.LabyrinthCreator.LabyrinthCreator</a>
+</li>
+<li>checkLabyrinthSize()
+: <a class="el" href="classlabyrinth_1_1validators_1_1_consts_validator_1_1_consts_validator.html#a76faab89a509f06a9c553d3d63d5302a">labyrinth.validators.ConstsValidator.ConstsValidator</a>
 </li>
 <li>clearFlagsAfterRoadSearch()
 : <a class="el" href="classlabyrinth_1_1road_1_1_road_finder_1_1_road_finder.html#a104f477601cc797ac06ac2ad2218538a">labyrinth.road.RoadFinder.RoadFinder</a>
@@ -216,9 +221,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>LABYRINTH_EXIT_IMAGE
 : <a class="el" href="classlabyrinth_1_1display_1_1_labyrinth_displayer_1_1_labyrinth_displayer.html#af4bc4bf4da5a2bc4676c90de2fb8f528">labyrinth.display.LabyrinthDisplayer.LabyrinthDisplayer</a>
 </li>
-<li>LABYRINTH_HEIGHT
-: <a class="el" href="classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#a5dfc3cab0c902958f2b82d6643684b91">labyrinth.constants.Consts.Consts</a>
-</li>
 <li>LABYRINTH_ROAD
 : <a class="el" href="classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#ae5c1099d4459411f6e77e77035dc9408">labyrinth.constants.Consts.Consts</a>
 </li>
@@ -237,20 +239,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>LABYRINTH_ROAD_UP
 : <a class="el" href="classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#aad3ba48b4711ae913a64ba5d91f35921">labyrinth.constants.Consts.Consts</a>
 </li>
+<li>LABYRINTH_SIZE
+: <a class="el" href="classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#a64387464040a6763cad1a4c86da9a5a4">labyrinth.constants.Consts.Consts</a>
+</li>
 <li>LABYRINTH_WALL
 : <a class="el" href="classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#af8f0a36a321d006559578a9142faf47a">labyrinth.constants.Consts.Consts</a>
 </li>
 <li>LABYRINTH_WALL_IMAGE
 : <a class="el" href="classlabyrinth_1_1display_1_1_labyrinth_displayer_1_1_labyrinth_displayer.html#a0fabc9dc94181b2acbf33fc21685189e">labyrinth.display.LabyrinthDisplayer.LabyrinthDisplayer</a>
 </li>
-<li>LABYRINTH_WIDTH
-: <a class="el" href="classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#ac974b17f6161c14d4193f88bf177db89">labyrinth.constants.Consts.Consts</a>
-</li>
 <li>labyrinthArray
 : <a class="el" href="classlabyrinth_1_1base_1_1_labyrinth_creator_1_1_labyrinth_creator.html#a6b95fa28c142532ae8f1fc192adea119">labyrinth.base.LabyrinthCreator.LabyrinthCreator</a>
 </li>
 <li>loadImage()
 : <a class="el" href="classlabyrinth_1_1display_1_1_labyrinth_displayer_1_1_labyrinth_displayer.html#a6e193cef9c1ab51b51d666051f63279b">labyrinth.display.LabyrinthDisplayer.LabyrinthDisplayer</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>minimalLabyrinthSize
+: <a class="el" href="classlabyrinth_1_1validators_1_1_consts_validator_1_1_consts_validator.html#af2c7a7a567e09ad2c665783eb75affc6">labyrinth.validators.ConstsValidator.ConstsValidator</a>
 </li>
 </ul>
 
@@ -290,9 +299,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>searchRoad()
 : <a class="el" href="classlabyrinth_1_1road_1_1_road_finder_1_1_road_finder.html#a1237e46db5e2ca12f869cd7018be22f4">labyrinth.road.RoadFinder.RoadFinder</a>
-</li>
-<li>show()
-: <a class="el" href="classlabyrinth_1_1base_1_1_labyrinth_creator_1_1_labyrinth_creator.html#a8e45027a53c257ed8e5213cfac5b37bf">labyrinth.base.LabyrinthCreator.LabyrinthCreator</a>
 </li>
 <li>showLabyrinth()
 : <a class="el" href="classlabyrinth_1_1display_1_1_labyrinth_displayer_1_1_labyrinth_displayer.html#af842fe534aecfa247ae892fcfcb19e6a">labyrinth.display.LabyrinthDisplayer.LabyrinthDisplayer</a>
@@ -341,7 +347,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 8 2015 23:28:30 for Labyrinth by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 19 2015 14:07:06 for Labyrinth by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

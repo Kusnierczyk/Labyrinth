@@ -5,15 +5,14 @@ var searchData=
   ['labyrinth_5fentrance_5fimage',['LABYRINTH_ENTRANCE_IMAGE',['../classlabyrinth_1_1display_1_1_labyrinth_displayer_1_1_labyrinth_displayer.html#addaa120bbcbf5ff543d683ea4c01e12f',1,'labyrinth::display::LabyrinthDisplayer::LabyrinthDisplayer']]],
   ['labyrinth_5fexit',['LABYRINTH_EXIT',['../classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#aff77f9561e72f193dbd79250ea0b6d78',1,'labyrinth::constants::Consts::Consts']]],
   ['labyrinth_5fexit_5fimage',['LABYRINTH_EXIT_IMAGE',['../classlabyrinth_1_1display_1_1_labyrinth_displayer_1_1_labyrinth_displayer.html#af4bc4bf4da5a2bc4676c90de2fb8f528',1,'labyrinth::display::LabyrinthDisplayer::LabyrinthDisplayer']]],
-  ['labyrinth_5fheight',['LABYRINTH_HEIGHT',['../classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#a5dfc3cab0c902958f2b82d6643684b91',1,'labyrinth::constants::Consts::Consts']]],
   ['labyrinth_5froad',['LABYRINTH_ROAD',['../classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#ae5c1099d4459411f6e77e77035dc9408',1,'labyrinth::constants::Consts::Consts']]],
   ['labyrinth_5froad_5fdown',['LABYRINTH_ROAD_DOWN',['../classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#a9f2a3a6ec40c04e375ec8fe72ff10770',1,'labyrinth::constants::Consts::Consts']]],
   ['labyrinth_5froad_5fimage',['LABYRINTH_ROAD_IMAGE',['../classlabyrinth_1_1display_1_1_labyrinth_displayer_1_1_labyrinth_displayer.html#a70f2ec9a1c48925d566bca823e621990',1,'labyrinth::display::LabyrinthDisplayer::LabyrinthDisplayer']]],
   ['labyrinth_5froad_5fleft',['LABYRINTH_ROAD_LEFT',['../classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#af593c3b2e269fc95531b6a5674b090e0',1,'labyrinth::constants::Consts::Consts']]],
   ['labyrinth_5froad_5fright',['LABYRINTH_ROAD_RIGHT',['../classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#a720b566a93eb2f397cfec1d72fe66a24',1,'labyrinth::constants::Consts::Consts']]],
   ['labyrinth_5froad_5fup',['LABYRINTH_ROAD_UP',['../classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#aad3ba48b4711ae913a64ba5d91f35921',1,'labyrinth::constants::Consts::Consts']]],
+  ['labyrinth_5fsize',['LABYRINTH_SIZE',['../classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#a64387464040a6763cad1a4c86da9a5a4',1,'labyrinth::constants::Consts::Consts']]],
   ['labyrinth_5fwall',['LABYRINTH_WALL',['../classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#af8f0a36a321d006559578a9142faf47a',1,'labyrinth::constants::Consts::Consts']]],
   ['labyrinth_5fwall_5fimage',['LABYRINTH_WALL_IMAGE',['../classlabyrinth_1_1display_1_1_labyrinth_displayer_1_1_labyrinth_displayer.html#a0fabc9dc94181b2acbf33fc21685189e',1,'labyrinth::display::LabyrinthDisplayer::LabyrinthDisplayer']]],
-  ['labyrinth_5fwidth',['LABYRINTH_WIDTH',['../classlabyrinth_1_1constants_1_1_consts_1_1_consts.html#ac974b17f6161c14d4193f88bf177db89',1,'labyrinth::constants::Consts::Consts']]],
   ['labyrintharray',['labyrinthArray',['../classlabyrinth_1_1base_1_1_labyrinth_creator_1_1_labyrinth_creator.html#a6b95fa28c142532ae8f1fc192adea119',1,'labyrinth::base::LabyrinthCreator::LabyrinthCreator']]]
 ];
