@@ -1,10 +1,7 @@
 class Consts(object):
     
-    ## Defines labyrinth height
-    LABYRINTH_HEIGHT = 5;
-    
-    ## Defines labyrinth height
-    LABYRINTH_WIDTH = 5;
+    ## Defines labyrinth width and height
+    LABYRINTH_SIZE = 5;
     
     ## Defines labyrinth wall
     LABYRINTH_WALL = 0;
