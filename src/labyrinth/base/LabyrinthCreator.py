@@ -45,7 +45,7 @@ class LabyrinthCreator(object):
             else:
                 self.yEntrancePosition = Consts.LABYRINTH_SIZE - 1;
                 self.labyrinthArray[self.xEntrancePosition][self.yEntrancePosition] = Consts.LABYRINTH_ENTRANCE;
-                
+        
     ## Creates labyrinth exit
     # @param self The object pointer
     def createLabyrinthExit(self):
@@ -143,7 +143,8 @@ class LabyrinthCreator(object):
         elif (self.xEntrancePosition == Consts.LABYRINTH_SIZE - 1):
             'Rotation of 180 degrees in clockwise direction'
             numberOfRotations = 2;
-        elif (self.yEntrancePosition == Consts.LABYRINTH_SIZE - 1):
+        elif ((self.yEntrancePosition == Consts.LABYRINTH_SIZE - 1) and 
+        (self.xEntrancePosition in range(1, Consts.LABYRINTH_SIZE - 1))):
             'Rotation of 270 degrees in clockwise direction'
             numberOfRotations = 1;
         else:
