@@ -15,7 +15,7 @@ class Runner(object):
     def run(self):
         labyrinthCreator = LabyrinthCreator();
         roadFinder = RoadFinder();
-        labyrinthDisplayer = LabyrinthDisplayer(Consts.LABYRINTH_HEIGHT, Consts.LABYRINTH_WIDTH);
+        labyrinthDisplayer = LabyrinthDisplayer();
     
         labyrinthCreator.initializeLabyrinth();
         labyrinthCreator.createLabyrinthEntrance();

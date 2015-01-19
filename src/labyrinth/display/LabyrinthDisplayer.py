@@ -59,9 +59,9 @@ class LabyrinthDisplayer(object):
     # @param self The object pointer
     # @param labyrinthHeight Labyrinth height
     # @param labyrinthWidth Labyrinth width
-    def __init__(self, labyrinthHeight, labyrinthWidth):
-        self.screenSize = (labyrinthHeight * self.IMAGE_HEIGHT, 
-                           labyrinthWidth * self.IMAGE_WIDTH);
+    def __init__(self):
+        self.screenSize = (Consts.LABYRINTH_SIZE * self.IMAGE_HEIGHT, 
+                           Consts.LABYRINTH_SIZE * self.IMAGE_WIDTH);
         pygame.init();
         self.surface = pygame.display.set_mode(self.screenSize, pygame.DOUBLEBUF);
         pygame.display.set_caption("Labyrinth");
@@ -111,8 +111,8 @@ class LabyrinthDisplayer(object):
         
         pygame.display.flip();
         
-        for i in range(Consts.LABYRINTH_HEIGHT):
-            for j in range(Consts.LABYRINTH_WIDTH):
+        for i in range(Consts.LABYRINTH_SIZE):
+            for j in range(Consts.LABYRINTH_SIZE):
                 if (labyrinthArray[i][j] == Consts.LABYRINTH_ROAD):
                     self.surface.blit(self.roadImage, (j * self.IMAGE_WIDTH, 
                                                    i * self.IMAGE_HEIGHT));
