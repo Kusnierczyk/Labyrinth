@@ -27,46 +27,46 @@ class LabyrinthCreator(object):
     ## Creates and initializes with 0 value labyrinth array
     # @param self The object pointer 
     def initializeLabyrinth(self):
-        self.labyrinthArray = numpy.zeros((Consts.LABYRINTH_WIDTH, Consts.LABYRINTH_HEIGHT), dtype=numpy.int);
+        self.labyrinthArray = numpy.zeros((Consts.LABYRINTH_SIZE, Consts.LABYRINTH_SIZE), dtype=numpy.int);
                 
     ## Creates labyrinth entrance
     # @param self The object pointer
     def createLabyrinthEntrance(self):        
-        self.xEntrancePosition = random.randrange(Consts.LABYRINTH_HEIGHT);
-        if ((self.xEntrancePosition == 0) or (self.xEntrancePosition == Consts.LABYRINTH_HEIGHT - 1)):
-            self.yEntrancePosition = random.randrange(Consts.LABYRINTH_WIDTH);
+        self.xEntrancePosition = random.randrange(Consts.LABYRINTH_SIZE);
+        if ((self.xEntrancePosition == 0) or (self.xEntrancePosition == Consts.LABYRINTH_SIZE - 1)):
+            self.yEntrancePosition = random.randrange(Consts.LABYRINTH_SIZE);
             self.labyrinthArray[self.xEntrancePosition][self.yEntrancePosition] = Consts.LABYRINTH_ENTRANCE;
         
         #Check if xEntrancePosition is between top and bottom labyrinth edge
-        elif (self.xEntrancePosition in range(1, Consts.LABYRINTH_HEIGHT - 1)):
+        elif (self.xEntrancePosition in range(1, Consts.LABYRINTH_SIZE - 1)):
             if (random.random() < Consts.PROBABILITY):
                 self.yEntrancePosition = 0;        
                 self.labyrinthArray[self.xEntrancePosition][self.yEntrancePosition] = Consts.LABYRINTH_ENTRANCE;
             else:
-                self.yEntrancePosition = Consts.LABYRINTH_WIDTH - 1;
+                self.yEntrancePosition = Consts.LABYRINTH_SIZE - 1;
                 self.labyrinthArray[self.xEntrancePosition][self.yEntrancePosition] = Consts.LABYRINTH_ENTRANCE;
                 
     ## Creates labyrinth exit
     # @param self The object pointer
     def createLabyrinthExit(self):
         if ((self.xEntrancePosition == 0) and
-                (self.yEntrancePosition in range(Consts.LABYRINTH_WIDTH))):
-            self.xExitPosition = Consts.LABYRINTH_HEIGHT - 1; 
-            self.yExitPosition = random.randrange(Consts.LABYRINTH_WIDTH);
+                (self.yEntrancePosition in range(Consts.LABYRINTH_SIZE))):
+            self.xExitPosition = Consts.LABYRINTH_SIZE - 1; 
+            self.yExitPosition = random.randrange(Consts.LABYRINTH_SIZE);
             self.labyrinthArray[self.xExitPosition][self.yExitPosition] = Consts.LABYRINTH_EXIT;
-        elif ((self.xEntrancePosition == Consts.LABYRINTH_HEIGHT - 1) and 
-                (self.yEntrancePosition in range(Consts.LABYRINTH_WIDTH))):
+        elif ((self.xEntrancePosition == Consts.LABYRINTH_SIZE - 1) and 
+                (self.yEntrancePosition in range(Consts.LABYRINTH_SIZE))):
             self.xExitPosition = 0;
-            self.yExitPosition = random.randrange(Consts.LABYRINTH_WIDTH);
+            self.yExitPosition = random.randrange(Consts.LABYRINTH_SIZE);
             self.labyrinthArray[self.xExitPosition][self.yExitPosition] = Consts.LABYRINTH_EXIT;
-        elif ((self.xEntrancePosition in range(1, Consts.LABYRINTH_HEIGHT - 1)) and
+        elif ((self.xEntrancePosition in range(1, Consts.LABYRINTH_SIZE - 1)) and
                 (self.yEntrancePosition == 0)):
-            self.xExitPosition = random.randrange(Consts.LABYRINTH_HEIGHT);
-            self.yExitPosition = Consts.LABYRINTH_WIDTH - 1;
+            self.xExitPosition = random.randrange(Consts.LABYRINTH_SIZE);
+            self.yExitPosition = Consts.LABYRINTH_SIZE - 1;
             self.labyrinthArray[self.xExitPosition][self.yExitPosition] = Consts.LABYRINTH_EXIT;
-        elif ((self.xEntrancePosition in range(1, Consts.LABYRINTH_HEIGHT - 1)) and
-                (self.yEntrancePosition == Consts.LABYRINTH_WIDTH - 1)):
-            self.xExitPosition = random.randrange(Consts.LABYRINTH_HEIGHT);
+        elif ((self.xEntrancePosition in range(1, Consts.LABYRINTH_SIZE - 1)) and
+                (self.yEntrancePosition == Consts.LABYRINTH_SIZE - 1)):
+            self.xExitPosition = random.randrange(Consts.LABYRINTH_SIZE);
             self.yExitPosition = 0;
             self.labyrinthArray[self.xExitPosition][self.yExitPosition] = Consts.LABYRINTH_EXIT;
         else:
@@ -106,9 +106,9 @@ class LabyrinthCreator(object):
     # @param currentValue Current value
     # @return newValue Value which not equals to currentValue
     def generateRandomValue(self, currentValue):
-        newValue = random.randrange(0, Consts.LABYRINTH_WIDTH);
+        newValue = random.randrange(0, Consts.LABYRINTH_SIZE);
         while (newValue == currentValue):
-            newValue = random.randrange(0, Consts.LABYRINTH_WIDTH);
+            newValue = random.randrange(0, Consts.LABYRINTH_SIZE);
         return newValue;
     
     ## Creates road between two points
@@ -137,13 +137,13 @@ class LabyrinthCreator(object):
     def checkIfLabyrinthArrayRotationIsRequired(self):
         numberOfRotations = 0;
         if ((self.yEntrancePosition == 0) and 
-        (self.xEntrancePosition in range(1, Consts.LABYRINTH_HEIGHT - 1))): 
+        (self.xEntrancePosition in range(1, Consts.LABYRINTH_SIZE - 1))): 
             'Rotation of 90 degrees in clockwise direction'
             numberOfRotations = 3;
-        elif (self.xEntrancePosition == Consts.LABYRINTH_WIDTH - 1):
+        elif (self.xEntrancePosition == Consts.LABYRINTH_SIZE - 1):
             'Rotation of 180 degrees in clockwise direction'
             numberOfRotations = 2;
-        elif (self.yEntrancePosition == Consts.LABYRINTH_WIDTH - 1):
+        elif (self.yEntrancePosition == Consts.LABYRINTH_SIZE - 1):
             'Rotation of 270 degrees in clockwise direction'
             numberOfRotations = 1;
         else:
@@ -163,8 +163,8 @@ class LabyrinthCreator(object):
     # @return Tuple which contains (row, column) of searched element
     # If value has not been found method return -1
     def findElementInLabyrinthArray(self, value):
-        for row in range(Consts.LABYRINTH_WIDTH):
-            for column in range(Consts.LABYRINTH_HEIGHT):
+        for row in range(Consts.LABYRINTH_SIZE):
+            for column in range(Consts.LABYRINTH_SIZE):
                 if (self.labyrinthArray[row][column] == value):
                     return row, column;
         return -1;
@@ -178,6 +178,3 @@ class LabyrinthCreator(object):
         self.yEntrancePosition = entrancePosition[1];
         self.xExitPosition = exitPosition[0];
         self.yExitPosition = exitPosition[1];
-    
-    def show(self):
-        print(self.labyrinthArray);

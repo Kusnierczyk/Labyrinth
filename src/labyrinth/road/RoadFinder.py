@@ -60,7 +60,7 @@ class RoadFinder(object):
                 vertexQueue.append(tmpX - 1);
                 vertexQueue.append(tmpY);
             
-            if ((tmpX + 1 <= Consts.LABYRINTH_HEIGHT - 1) and
+            if ((tmpX + 1 <= Consts.LABYRINTH_SIZE - 1) and
                 (labyrinthArray[tmpX + 1][tmpY] == Consts.LABYRINTH_ROAD)):
                 
                 labyrinthArray[tmpX + 1][tmpY] = Consts.LABYRINTH_ROAD_DOWN;
@@ -74,7 +74,7 @@ class RoadFinder(object):
                 vertexQueue.append(tmpX);
                 vertexQueue.append(tmpY - 1);
             
-            if ((tmpY + 1 <= Consts.LABYRINTH_WIDTH - 1) and
+            if ((tmpY + 1 <= Consts.LABYRINTH_SIZE - 1) and
                 (labyrinthArray[tmpX][tmpY + 1] == Consts.LABYRINTH_ROAD)):
                 
                 labyrinthArray[tmpX][tmpY + 1] = Consts.LABYRINTH_ROAD_RIGHT;
@@ -87,8 +87,8 @@ class RoadFinder(object):
     # @param xExitPosition Exit position on X axis
     # @param yExitPosition Exit position on Y axis
     def clearFlagsAfterRoadSearch(self, labyrinthArray, xExitPosition, yExitPosition):
-        for i in range(Consts.LABYRINTH_HEIGHT):
-            for j in range(Consts.LABYRINTH_WIDTH):
+        for i in range(Consts.LABYRINTH_SIZE):
+            for j in range(Consts.LABYRINTH_SIZE):
                 if (labyrinthArray[i][j] in range (Consts.LABYRINTH_ROAD_LEFT, Consts.LABYRINTH_ROAD_DOWN + 1)):
                     labyrinthArray[i][j] = Consts.LABYRINTH_ROAD;
         labyrinthArray[xExitPosition][yExitPosition] = Consts.LABYRINTH_EXIT;
