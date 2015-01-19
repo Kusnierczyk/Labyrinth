@@ -1,7 +1,7 @@
 from labyrinth.base.LabyrinthCreator import LabyrinthCreator;
-from labyrinth.constants.Consts import Consts;
 from labyrinth.display.LabyrinthDisplayer import LabyrinthDisplayer
 from labyrinth.road.RoadFinder import RoadFinder;
+from labyrinth.validators.ConstsValidator import ConstsValidator
 
 class Runner(object):
 
@@ -13,6 +13,9 @@ class Runner(object):
     ## Creates main objects and invokes methods
     # @param self The object pointer 
     def run(self):
+        constsValidator = ConstsValidator();
+        constsValidator.checkLabyrinthSize();
+        
         labyrinthCreator = LabyrinthCreator();
         roadFinder = RoadFinder();
         labyrinthDisplayer = LabyrinthDisplayer();
