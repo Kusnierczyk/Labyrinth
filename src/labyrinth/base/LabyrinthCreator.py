@@ -159,7 +159,7 @@ class LabyrinthCreator(object):
     
     ## Rotates labyrinth array using numpy.rot90 method
     # @param self The object pointer
-    # @param labArray Array which represents labyrinth
+    # @param value Value which should be searched
     # @return Tuple which contains (row, column) of searched element
     # If value has not been found method return -1
     def findElementInLabyrinthArray(self, value):

@@ -57,8 +57,6 @@ class LabyrinthDisplayer(object):
 
     ## LabyrinthDisplayer class constructor
     # @param self The object pointer
-    # @param labyrinthHeight Labyrinth height
-    # @param labyrinthWidth Labyrinth width
     def __init__(self):
         self.screenSize = (Consts.LABYRINTH_SIZE * self.IMAGE_HEIGHT, 
                            Consts.LABYRINTH_SIZE * self.IMAGE_WIDTH);
